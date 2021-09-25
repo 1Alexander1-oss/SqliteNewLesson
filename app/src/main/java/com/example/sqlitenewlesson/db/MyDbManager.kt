@@ -15,7 +15,7 @@ class MyDbManager(context: Context) {
     fun insertToDb(title: String, content: String) { // функция для сохранения базы данных
         val values = ContentValues().apply {
             put(MyDbKotlinClass.COLUMN_NAME_TITLE, title)
-            put(MyDbKotlinClass.COLUMN_NAME_CONTENT, title)
+            put(MyDbKotlinClass.COLUMN_NAME_CONTENT, content)
         }
         db?.insert(MyDbKotlinClass.TABLE_NAME, null, values)
 
@@ -34,6 +34,10 @@ class MyDbManager(context: Context) {
                 dataList.add(dateText.toString()) // курсор
             }
         }
+        cursor.close()
         return dataList
+    }
+    fun closeDb() {
+        myDbHelper.close()
     }
 }

@@ -12,7 +12,7 @@ object MyDbKotlinClass : BaseColumns {
     const val DATABASE_NAME =
         "MyLessonDb.db" // название базы данных, тип 'DATABASE name . расширение( формат .db)'
 
-    const val CREATE_TABLE = "CREATE TABLE IF NOT EXIST $TABLE_NAME (" +
+    const val CREATE_TABLE = "CREATE TABLE IF NOT EXISTS $TABLE_NAME (" +
             /**
              * в данной строке указана простейшая структура базы данных, с указанием названия
              * структурных элементов + указание типов данных для этих элементов
