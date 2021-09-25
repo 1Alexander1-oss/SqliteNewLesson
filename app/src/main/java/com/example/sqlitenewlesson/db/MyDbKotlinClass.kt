@@ -1,8 +1,6 @@
 package com.example.sqlitenewlesson.db
 
-import android.os.FileObserver.CREATE
-import android.provider.BaseColumns // интерфейс работающий с базой данных, уже имеющий в себе переменную id
-import java.text.Collator.PRIMARY
+import android.provider.BaseColumns
 
 
 object MyDbKotlinClass : BaseColumns {
@@ -12,8 +10,16 @@ object MyDbKotlinClass : BaseColumns {
 
     const val DATABASE_VERSION = 1 //
     const val DATABASE_NAME =
-        "MyLessonDb.db" // название базы данных, тип 'DATABASE name . расширение'
+        "MyLessonDb.db" // название базы данных, тип 'DATABASE name . расширение( формат .db)'
 
     const val CREATE_TABLE = "CREATE TABLE IF NOT EXIST $TABLE_NAME (" +
-            "${BaseColumns._ID} INTEGER PRIMARY KEY, $COLUMN_NAME_TITLE TEXT, $COLUMN_NAME_CONTENT TEXT)" // в данной строке указана простейшая структура базы данных, с указанием названия структурных элементов + указание типов данных для этих элементов
+            /**
+             * в данной строке указана простейшая структура базы данных, с указанием названия
+             * структурных элементов + указание типов данных для этих элементов
+             * */
+            "${BaseColumns._ID} INTEGER PRIMARY KEY, " +
+            "$COLUMN_NAME_TITLE TEXT, " +
+            "$COLUMN_NAME_CONTENT TEXT" +
+            ")"
+    const val SQL_DELETE_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"
 }
